@@ -1,24 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import ListeCellulaires from './components/ListeCellulaires';
+import ModifierCellulaire from './components/ModifierCellulaire';
+import AjouterCellulaire from './components/AjouterCellulaire';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+        <Router>
+          <div>
+            <Header  />
+            <Routes>
+               <Route path='/' element={ <ListeCellulaires 
+                                           />}>
+     
+               </Route>
+               {/* <Route path='/ajouter' element={<AjouterCellulaire                                     
+                                             />}>
+     
+             </Route>
+             <Route path='/modifier' element={<ModifierCellulaire
+                                               />}>
+             </Route> */}
+            </Routes>
+          </div>
+        </Router>
+     </div>
   );
 }
 
