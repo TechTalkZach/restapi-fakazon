@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.create-form label{
+  color: rgb(17, 17, 17) !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px !important;
+  text-align: center;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #dfdfdf;
+  color: rgb(172, 57, 0);
+  flex-direction: column;
+}
+
+#titre {
+  color: green;
+  font-size: 50px;
+  text-align: center;
+}
+#titre2 {
+  color: rgb(0, 176, 234);
+  font-size: 50px;
+  text-align: center;
+}
+#description { 
+  width: 600px;
+  column-width: 200px;
+}
