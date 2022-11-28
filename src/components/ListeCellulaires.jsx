@@ -39,7 +39,7 @@ const ListeCellulaires = () => {
                  <h2 className="text-center">Liste des Cellulaires</h2>
                  <div className = "row">
                     {/* OnClick ajouterCellulaire() */}
-                    <button className="btn btn-primary"> Ajouter Cellulaire</button>
+                    <a href="/ajouter"><button className="btn btn-primary"> Ajouter Cellulaire</button></a>
                  </div>
                  <br></br>
                  <div className = "row">
@@ -65,7 +65,7 @@ const ListeCellulaires = () => {
                                              <td> {cellulaire.prix}</td>
                                              <td>
                                                  {/* onClick={ () => this.modifierCellulaire(cellulaire.id)} */}
-                                                 <button className="btn btn-info">Modifier </button>
+                                                 <a href="/modifier"><button className="btn btn-info">Modifier </button></a>
                                                  {/* onClick={ () => this.supprimerCellulaire(employee.id)} */}
                                                  <button style={{marginLeft: "10px"}}  className="btn btn-danger">Supprimer</button>
                                                 
