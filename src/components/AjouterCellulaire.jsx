@@ -71,7 +71,7 @@ const AjouterCellulaire = () => {
 
 export default AjouterCellulaire
 
-
+// 
 // var QtyPicker = require('react-quantity-picker');
 // var value = 1 ;
 // <QtyPicker
