@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 // Ici le URL doit changer
-const CELLULAIRE_API_BASE_URL = "http://localhost:8080/fakazonapi";
+const CELLULAIRE_API_BASE_URL = "http://localhost:8080/cell";
 
 class CellulaireService {
     
