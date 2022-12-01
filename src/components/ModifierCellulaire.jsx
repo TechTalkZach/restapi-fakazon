@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router';
 
 const ModifierCellulaire = () => {
 
+  const [query] = useSearchParams();
+  const [id, setId] = useState(query.get("id"))
   const [nom, setNom] = useState('');
   const [prix, setPrix] = useState('');
   const [categorie, setCategorie] = useState('');
@@ -17,6 +19,12 @@ const ModifierCellulaire = () => {
   const navigate = useNavigate();
 
 
+  const listeCategorie = ["Samsung", "Apple"]
+  console.log(categorie)
+
+
+
+
   // Fonction qui envoie les informations au API
   const postData = () => {
     console.log(nom);
@@ -25,6 +33,19 @@ const ModifierCellulaire = () => {
     console.log(description);
 
   }
+
+  // Fonction qui envoie les informations au API
+  const updateData = async(e) => {
+    e.preventDefault()
+
+    const produit = {nom, prix, categorie, quantite}
+    const reponse = await CellulaireServices.modifierCellulaire(produit, id)
+
+    if(reponse.status === 200)
+      navigate("/")
+    
+  }
+
 
 // A bien configurer , le History Push nous envoye a la bonne page apres le changement a l'API
 //   const postData = () => {
@@ -40,28 +61,17 @@ const ModifierCellulaire = () => {
 
   return (
     <div>
-      <h1 id="titre2">Modifier Cellulaire</h1>
-      <Form className='create-form'>
-      <Form.Field>
-        <label>Nom</label>
-        <input placeholder='Nom'  onChange={(e) => setNom(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label>Prix</label>
-        <input placeholder='Prix' onChange={(e) => setPrix(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label>Catégorie</label>
-        <input placeholder='Catégorie' onChange={(e) => setCategorie(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label >Description</label>
-        <input id="description" placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
-      </Form.Field>
-      
-      <Button onClick={postData} type='submit'>Modifier</Button>
-    </Form>
-    </div>
+    <h1 id="titre">Modifier Cellulaire</h1>
+    <a href="/">Retour à l'acceuil</a>
+    <form>
+      <InputText label="Nom" setValue={setNom} value={nom} />
+      <InputNumber label="Prix" setValue={setPrix} value={prix} />
+      <InputNumber label="Quantité" setValue={setQuantite} value={quantite} />
+      <InputSelect label="Catégorie" options={listeCategorie} setValue={setCategorie} value={categorie} />
+      <button className='btn btn-info' onClick={updateData} >Modifier</button>
+    </form>
+  </div>
+
     
   )
 }

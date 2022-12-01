@@ -19,15 +19,19 @@ const AjouterCellulaire = () => {
   // Navigation apres le POST a l'api
   const navigate = useNavigate();
 
+  const listeCategorie = ["Samsung", "Aplle"]
 
-  // Fonction qui envoie les informations au API
-  const postData = () => {
-    console.log(nom);
-    console.log(prix);
-    console.log(categorie);
-    console.log(description);
+
+   // Fonction qui envoie les informations au API
+   const postData = async (e)=>{
+    e.preventDefault()
+    const response = await CellulaireServices.ajouterCellulaire({nom, prix, categorie, quantite})
+
+    if(response.status === 200)
+      navigate("/")
 
   }
+
 
 // A bien configurer , le History Push nous envoye a la bonne page apres le changement a l'API
 //   const postData = () => {
@@ -44,27 +48,16 @@ const AjouterCellulaire = () => {
   return (
     <div>
       <h1 id="titre">Ajouter Cellulaire</h1>
-      <Form className='create-form'>
-      <Form.Field>
-        <label>Nom</label>
-        <input placeholder='Nom'  onChange={(e) => setNom(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label>Prix</label>
-        <input placeholder='Prix' onChange={(e) => setPrix(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label>Catégorie</label>
-        <input placeholder='Catégorie' onChange={(e) => setCategorie(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <label >Description</label>
-        <input id="description" placeholder='Description' onChange={(e) => setDescription(e.target.value)} />
-      </Form.Field>
-      
-      <Button onClick={postData} type='submit'>Ajouter</Button>
-    </Form>
+      <a href="/">Retour à l'acceuil</a>
+      <form>
+        <InputText label="Nom" setValue={setNom} value={nom} />
+        <InputNumber label="Prix" setValue={setPrix} value={prix} />
+        <InputNumber label="Quantité" setValue={setQuantite} value={quantite} />
+        <InputSelect label="Catégorie" options={listeCategorie} setValue={setCategorie} value={categorie} />
+        <button className='btn btn-info' onClick={postData} >Ajouter</button>
+      </form>
     </div>
+
     
   )
 }
