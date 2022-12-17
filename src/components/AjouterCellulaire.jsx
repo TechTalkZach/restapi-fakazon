@@ -7,7 +7,7 @@ import { useNavigate} from 'react-router';
 
 
 
-// Ajouter cellulaire g
+// Ajouter cellulaire au liste
 const AjouterCellulaire = () => {
 
   const [nom, setNom] = useState('');
