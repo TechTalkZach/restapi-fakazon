@@ -1,4 +1,4 @@
-// input number 2 ggg
+// input number 2 gggg
 export default function InputNumber({label, setValue, value, errorMessage}){
 
     return(
